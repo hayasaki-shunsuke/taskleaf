@@ -31,7 +31,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to tasks_url, notice: "タスク「#{task.name} を登録しました。」"
+      redirect_to @task, notice: "タスク「#{@task.name} を登録しました。」"
     else
       render :new
     end
