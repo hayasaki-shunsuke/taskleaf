@@ -3,4 +3,4 @@ h1 ユーザーの編集
 .nav.jastify-content-end
   = link_to '一覧', admin_users_path, class: 'nav-link'
 
-= render partial: 'form', locales: { user: @user}
+= render partial: 'form', locals: { user: @user}

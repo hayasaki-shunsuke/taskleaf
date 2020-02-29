@@ -1,6 +1,6 @@
 h1 ユーザー一覧
 
-= link_to '新規登録', new_admin_user_path, class; 'btn btn-primary'
+= link_to '新規登録', new_admin_user_path, class: 'btn btn-primary'
 
 .mb-3
 table.table.table-hover
@@ -22,5 +22,5 @@ table.table.table-hover
           td = user.updated_at
           td
             = link_to '編集', edit_admin_user_path(user), class: 'btn btn-primary mr-3'
-            = link_to '削除', [:admin, user], method: :delete, date; { confirm: "ユーザー「#{user.name}」を削除します、よろしいですか？"}, class: 'btn btn-danger'
+            = link_to '削除', [:admin, user], method: :delete, data: { confirm: "ユーザー「#{user.name}」を削除します、よろしいですか？"}, class: 'btn btn-danger'
 
