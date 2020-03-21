@@ -20,6 +20,7 @@ class TasksController < ApplicationController
   def update
     task = Task.find(params[:id])
     task.update!(task_params)
+    task_logger.debug task_params
     redirect_to tasks_url, notice: "タスク「#{task.name} を更新しました。」"
   end
 
@@ -48,4 +49,9 @@ class TasksController < ApplicationController
   def set_task
     @task = current_user.tasks.find(params[:id])
   end
+
+  def task_logger
+    @task_logger ||= Logger.new('log/task.log', 'daily')
+  end
+
 end
