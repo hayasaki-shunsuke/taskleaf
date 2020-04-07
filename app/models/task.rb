@@ -6,7 +6,15 @@ class Task < ApplicationRecord
 
   belongs_to :user
 
-  scope :recent, -> { order(creted_at: :desc)}
+  scope :recent, -> { order(created_at: :desc)}
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name created_at]
+  end
+
+  def self.ransackable_association(auth_object = nil)
+    []
+  end
 
   private
 
