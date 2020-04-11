@@ -63,4 +63,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   # Logger
   config.logger = Logger.new('log/development.log', 'daily')
+  # sidekiq
+  config.active_job.queue_adapter = :sidekiq
 end
