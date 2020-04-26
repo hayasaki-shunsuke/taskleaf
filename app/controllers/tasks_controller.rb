@@ -31,9 +31,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    task = Task.find(params[:id])
-    task.destroy
-    redirect_to tasks_url, notice: "タスク「#{task.name} を削除しました。」"
+    @task.destroy
   end
 
   def create
@@ -46,7 +44,7 @@ class TasksController < ApplicationController
 
     if @task.save
       TaskMailer.creation_email(@task).deliver_now
-      SampleJob.perform_later
+      # SampleJob.perform_later
       redirect_to @task, notice: "タスク「#{@task.name} を登録しました。」"
     else
       render :new
