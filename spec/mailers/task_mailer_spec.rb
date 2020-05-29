@@ -27,8 +27,8 @@ describe TaskMailer, type: :mailer do
 
       # html形式の本文
       expect(html_body).to match('以下のタスクを作成しました')
-      expect(html_body).to match('メイラーSpecを書くa')
-      expect(html_body).to match('送信したメールの内容を確認します')
+      expect(html_body).to match('メイラーSpecを書く')
+      expect(html_body).to match('送信したメールの内容を確認しますテストテスト')
     end
   end
 end
